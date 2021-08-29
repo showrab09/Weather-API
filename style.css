@@ -1,6 +1,6 @@
 #body {
-  background: url(images/rain.jpg) no-repeat fixed center;
-  background-size: 100%;
+  background: url(images/rain.jpg) no-repeat ;
+  background-size: cover;
   height: 100vh;
 }
 .box {
@@ -8,6 +8,5 @@
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.377);
   border-radius: 12px;
-  max-height: 350px;
   
 }

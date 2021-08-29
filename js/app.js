@@ -7,18 +7,16 @@ const loadData = () => {
     fetch(url)
       .then((resp) => resp.json())
       .then((data) => displayData(data))
-      .catch((error) => displayError(error));
+      .catch(() => displayError());
     //clearing the search field
     searchData.value = '';
   }
-
 }
-const displayError = (error) => {
-  alert("No Data Found");
+//if data not found
+const displayError = () => {
+  alert("Please Insert a valid city name");
 };
 const displayData = (weather) => {
-  console.log(weather.name.length);
-
   const weatherDisplay = document.getElementById('weather-display');
   const temp = Math.floor(weather.main.temp - 273.15);
   weatherDisplay.innerHTML = `
