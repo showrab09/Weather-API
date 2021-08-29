@@ -38,3 +38,5 @@ const displayData = (weather) => {
     document.getElementById('body').style.backgroundImage = "url('images/snow.jpg')";
   }
 }
+
+
