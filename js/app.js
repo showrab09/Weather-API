@@ -1,15 +1,24 @@
 const loadData = () => {
   const searchData = document.getElementById('searchData');
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchData.value}&appid=b2e41ed172b0149ead67c863684598bc`
-  fetch(url)
-    .then((resp) => resp.json())
-    .then((data) => displayData(data));
-  //clearing the search field
-  searchData.value = '';
+  if (searchData.value == "") {
+    alert("please insert a city name")
+  } else {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchData.value}&appid=b2e41ed172b0149ead67c863684598bc`
+    fetch(url)
+      .then((resp) => resp.json())
+      .then((data) => displayData(data))
+      .catch((error) => displayError(error));
+    //clearing the search field
+    searchData.value = '';
+  }
+
 }
+const displayError = (error) => {
+  alert("No Data Found");
+};
 const displayData = (weather) => {
-  console.log(weather);
-  console.log(weather.weather[0].icon);
+  console.log(weather.name.length);
+
   const weatherDisplay = document.getElementById('weather-display');
   const temp = Math.floor(weather.main.temp - 273.15);
   weatherDisplay.innerHTML = `
